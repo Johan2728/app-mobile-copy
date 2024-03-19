@@ -8,6 +8,7 @@ import Proveedores from '../pages/Proveedores';
 import Inventario from '../pages/Inventarios';
 import Empleado from '../pages/Empleado';
 import Productos from '../pages/Productos';
+import Facturas from '../pages/Facturas';
 
 const Menu = createDrawerNavigator();
 
@@ -45,6 +46,7 @@ export default function Administrador() {
         <Menu.Screen name="EMPLEADOS" component={Empleado} />
         <Menu.Screen name="PRODUCTOS" component={Productos} />
         <Menu.Screen name="INVENTARIOS" component={Inventario} />
+        <Menu.Screen name="FACTURAS" component={Facturas} />
     </Menu.Navigator>
   );
 }

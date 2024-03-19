@@ -34,14 +34,82 @@ export default class Facturas extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <ScrollView horizontal>
-          <View>
-            <View style={styles.row}>
-              <Text style={[styles.tableHeader, { flex: 1, backgroundColor: '#440000' }]}>#</Text>
-              <Text style={[styles.tableHeader, { flex: 2, backgroundColor: '#440000' }]}>FECHA DE COMPRA</Text>
-              <Text style={[styles.tableHeader, { flex: 1, backgroundColor: '#440000' }]}>IVA</Text>
-              <Text style={[styles.tableHeader, { flex: 1, backgroundColor: '#440000' }]}>SUBTOTAL</Text>
-              <Text style={[styles.tableHeader, { flex: 1, backgroundColor: '#440000' }]}>TOTAL</Text>
+         <View style={styles.buttonContainer}>
+            <TouchableOpacity
+              onPress={() => this.setState({ modalVisible: true })}
+              style={{
+                backgroundColor: '#440000',
+                padding: 10,
+                borderRadius: 50,
+                marginBottom: 5,
+                width: '150px',
+                marginLeft: 300,
+                marginRight: 300,
+                marginTop: 20,
+              }}
+            >
+              <Text style={{ color: 'white' }}>Registrar Cliente</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => this.setState({ modalVisible: true })}
+              style={{
+                backgroundColor: '#440000',
+                padding: 10,
+                borderRadius: 50,
+                marginBottom: 5,
+                width: '150px',
+                marginLeft: 300,
+                marginRight: 300,
+                marginTop: 6,
+              }}
+            >
+              <Text style={{ color: 'white' }}>Buscar Cliente</Text>
+            </TouchableOpacity>
+          </View>
+              <View style={styles.containerdos}>
+                <Text style={styles.headerItem }>Empresa: Diablo Amargo</Text>
+                <Text style={styles.headerItem}>Direccion: </Text>
+              </View>
+              <View style={styles.containertres}>
+                <Text style={styles.headerItem }>Fecha De Compra:</Text>
+                <Text style={styles.headerItem}>Id Cliente: </Text>
+                <Text style={styles.headerItem}>Id Empleado: </Text>
+              </View>
+            
+            <View style={styles.containercuatro}>
+                <Text style={styles.headerItem }>ID:</Text>
+                <Text style={styles.headerItem }>Nombre:</Text>
+                <Text style={styles.headerItem }>Precio Unitario:</Text>
+                <Text style={styles.headerItem }>Cantidad:</Text>
+                
+            </View>
+            <View>
+              <button
+              style={{
+                backgroundColor: '#440000',
+                padding: 10,
+                borderRadius: 50,
+                marginBottom: 1,
+                width: '150px',
+                marginLeft: 300,
+                marginRight: 300,
+                marginTop: 6,
+                color:'white'
+              }}
+              >Confirmar</button>
+              <button
+              style={{
+                backgroundColor: '#440000',
+                padding: 10,
+                borderRadius: 50,
+                marginBottom: 1,
+                width: '150px',
+                marginLeft: 300,
+                marginRight: 300,
+                marginTop: 6,
+                color:'white'
+              }}
+              >Cancelar</button>
             </View>
             <FlatList
               contentContainerStyle={styles.tableGroupDivider}
@@ -60,8 +128,7 @@ export default class Facturas extends React.Component {
               keyExtractor={item => item.id}
             />
           </View>
-        </ScrollView>
-      </View>
+
     );
   }
 }
@@ -85,11 +152,42 @@ const styles = StyleSheet.create({
   },
   tableHeader: {
     flex: 1,
-    textAlign: 'center',
     color: 'white',
     paddingVertical: 5,
   },
   tableGroupDivider: {
     backgroundColor: '#dcdcdc',
   },
+  buttonContainer: {
+    row: 'space',
+    
+  },
+  containerdos: {
+    flex: 1,
+    backgroundColor: 'white',
+    marginLeft: 300,
+    marginRight: 300,
+    marginTop: 3,
+    margin:'30px'
+  },
+  containertres: {
+    flex: 1,
+    marginLeft: 300,
+    marginRight: 300,
+    marginTop: -28,
+    backgroundColor: 'white',
+    margin:'40px'
+  },
+  containercuatro: {
+    flex: 1,
+    marginLeft: 300,
+    marginRight: 300,
+    marginTop: -38.5,
+    display: 'flex',
+    flexDirection: 'row',
+    columnGap: '150px',
+    backgroundColor: 'white',
+    margin:'30px'
+  },
+
 });
